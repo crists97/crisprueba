@@ -1,7 +1,7 @@
 sap.ui.define(
   [
     "sap/ui/model/json/JSONModel",
-    "com/crisp/crisprueban/webapp/base/BaseObject"
+    "com/crisp/crisprueban/base/BaseObject"
   ],
   function (JSONModel, BaseObject) {
     "use strict";
@@ -9,7 +9,7 @@ sap.ui.define(
     var oInstance;
     /**
      * Module for extracting configuration values from the config.json file
-     * @exports com/crisp/crisprueban/webapp/services/ConfigHelper
+     * @exports com/crisp/crisprueban/services/ConfigHelper
      */
     var oClassInstance = BaseObject.extend(
       "com.crisp.crisprueban.services.ConfigHelper", {
@@ -27,7 +27,7 @@ sap.ui.define(
         BaseObject.call(this);
 
         //Load config json
-        var oConfigModel = new JSONModel();
+       /* var oConfigModel = new JSONModel();
         oConfigModel.loadData(
           jQuery.sap.getModulePath(
             "com.ssp.skeleton",
@@ -42,7 +42,7 @@ sap.ui.define(
             //Build url base
             this._buildUrlBase();
           }.bind(this)
-        );
+        );*/
       },
 
       /**
@@ -69,7 +69,7 @@ sap.ui.define(
        * @public
        * @return {object} The product data info object
        */
-      getProductDataInfo: function () {
+      getServiceDataInfo: function () {
         return this._getCallData("productData", "GetProductData");
       },
 

@@ -3,7 +3,7 @@ sap.ui.define([], function() {
 
   /**
    * Module for formatting the data from the models to the UI
-   * @exports com/ssp/skeleton/app/utils/formatter
+   * @exports com/crisp/crisprueban/utils/formatter
    */
   return {
     /**

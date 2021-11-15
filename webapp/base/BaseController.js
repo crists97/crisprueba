@@ -5,14 +5,14 @@ sap.ui.define(
     "sap/ui/core/mvc/Controller",
     "sap/ui/core/routing/History",
     "sap/ui/model/json/JSONModel",
-    "com/crisp/crisprueban/webapp/utils/formatter"
+    "com/crisp/crisprueban/utils/formatter"
   ],
   function(MessageBox, Controller, History, JSONModel, formatter) {
     "use strict";
 
     /**
      * Base object from which all other controllerss inherit
-     * @exports com/crisp/crisprueban/webapp/base/BaseController
+     * @exports com/crisp/crisprueban/base/BaseController
      */
     return Controller.extend(
       "com.crisp.crisprueban.base.BaseController",

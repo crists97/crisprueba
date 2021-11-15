@@ -1,7 +1,7 @@
 sap.ui.define(
   [
-    "com/crisp/crisprueban/webapp/services/ConfigHelper",
-    "com/crisp/crisprueban/webapp/base/BaseObject"
+    "com/crisp/crisprueban/services/ConfigHelper",
+    "com/crisp/crisprueban/base/BaseObject"
   ],
   function(ConfigHelper, BaseObject) {
     "use strict";
@@ -9,7 +9,7 @@ sap.ui.define(
     var oInstance;
     /**
      * Module for executing the calls of the controllers to the backend server
-     * @exports com/crisp/crisprueban/webapp/services/AjaxCaller
+     * @exports com/crisp/crisprueban/services/AjaxCaller
      */
     var classSingleton = BaseObject.extend(
       "com.crisp.crisprueban.services.AjaxCaller",

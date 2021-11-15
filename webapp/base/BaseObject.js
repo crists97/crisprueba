@@ -3,7 +3,7 @@ sap.ui.define(["sap/ui/base/Object"], function(Object) {
 
   /**
    * Base object from which all other utility singletons inherit
-   * @exports com.crisp.crisprueban/webapp/base/BaseObject
+   * @exports com.crisp.crisprueban/base/BaseObject
    */
   return Object.extend("com.crisp.crisprueban.base.BaseObject", {
     /**
