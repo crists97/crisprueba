@@ -45,7 +45,19 @@ sap.ui.define(
             .then(function(oData) {
               return oData;
             });
-        }
+        },
+
+        getCustomersData: function() {
+          var oUserDataInfo = ConfigHelper.getInstance().getCustomerDataInfo();
+               // setTimeout(function (that) {
+                    return AjaxCaller.getInstance()
+                        .requestAjax(oUserDataInfo.method, oUserDataInfo.url)
+                        .then(function (oData) {
+                            return oData;
+                        });
+              //  }, 2000);
+            }
+        
       }
     );
 

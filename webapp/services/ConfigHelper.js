@@ -73,8 +73,8 @@ sap.ui.define(
              * @public
              * @return {object} The product data info object
              */
-            getServiceDataInfo: function () {
-                return this._getCallData("productData", "GetProductData");
+            getCustomerDataInfo: function () {
+                return this._getCallData("customerData", "GetCustomerData");
             },
 
             /**
@@ -170,9 +170,9 @@ sap.ui.define(
                     }
                 }
                 //Delete possible unnecesary param placeHolders
-                if (sContextPath.indexOf("$") !== -1) {
+               /* if (sContextPath.indexOf("$") !== -1) {
                     sContextPath = sContextPath.split("$")[0];
-                }
+                }*/
 
                 var sMethod = "";
                 sMethod = this._oConfigData.urls[sApiPath][sApiMethod].method;

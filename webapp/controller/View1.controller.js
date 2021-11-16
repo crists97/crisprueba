@@ -2,33 +2,24 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "com/crisp/crisprueban/services/ConfigHelper",
     "com/crisp/crisprueban/services/AjaxCaller",
+    "com/crisp/crisprueban/services/ApiFacade",
     "sap/ui/model/json/JSONModel",
     "sap/base/util/UriParameters",
+    "com/crisp/crisprueban/base/BaseObject"
 ],
 	/**
 	 * @param {typeof sap.ui.core.mvc.Controller} Controller
 	 */
-    function (Controller, ConfigHelper, AjaxCaller, JSONModel, UriParameters) {
+    function (Controller, ConfigHelper, AjaxCaller, ApiFacade, JSONModel, UriParameters, BaseObject) {
         "use strict";
 
         return Controller.extend("com.crisp.crisprueban.controller.View1", {
-            onInit: function () {
-                var urlWindows = window["location"]["href"];
-                urlWindows = urlWindows.split("/index")[0]
-                var url = urlWindows + this.getView().getParent().getModel("undefined").sMetadataUrl;
-                var that = this;
-                setTimeout(function (that) {
-                    AjaxCaller.getInstance()
-                        .requestAjax("GET", url)
-                        .then(function (oData) {
-                            return oData;
-                        });
-                }, 2000);
-
+            ApiFacade: ApiFacade,
+            onInit: function () { 
             },
 
-            getInfoService: function (sMockServerUrl) {
-
+            getCustomersData: function (sMockServerUrl) {
+                ApiFacade.getInstance().getCustomersData()
 
             }
         });

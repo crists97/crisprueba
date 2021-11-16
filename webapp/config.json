@@ -1,27 +1,36 @@
 {
-  "mode": "relative",
-  "https": "true",
-  "liveSearchInterval": "0.75",
-  "imageCompression": "0.1",
-  "upperLimitSearchList": "5",
-  "defaultLanguage": "es",
-  "localAuth": "",
-  "timeout": {
-    "short": "10000",
-    "medium": "50000",
-    "long": "300000"
-  },
-  "urls": {
-    "path": "/xp/api",
-    "relpath": "",
-    "productData": {
-      "path": "/v1/product-data/{0}",
-      "GetProductData": {
-        "method": "GET"
-      },
-      "pruebaSer":{
-          "path":"V2/Northwind/Northwind.svc/$metadata?sap-language=EN", "method": "GET"
-      }
+    "mode": "relative",
+    "https": "true",
+    "liveSearchInterval": "0.75",
+    "imageCompression": "0.1",
+    "upperLimitSearchList": "5",
+    "defaultLanguage": "es",
+    "localAuth": "",
+    "timeout": {
+        "short": "10000",
+        "medium": "50000",
+        "long": "300000"
+    },
+    "urls": {
+        "path": "/V2/Northwind/Northwind.svc/",
+        "relpath": "",
+        "productData": {
+            "path": "/v1/product-data/{0}",
+            "GetProductData": {
+                "method": "GET"
+            }
+        },
+        "customerData0": {
+            "path": "$metadata?sap-language=EN",
+            "GetCustomerData": {
+                "method": "GET"
+            }
+        },
+        "customerData": {
+            "path": "Customers",
+            "GetCustomerData": {
+                "method": "GET"
+            }
+        }
     }
-  }
 }

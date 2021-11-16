@@ -4,6 +4,7 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:semantic="sap.f.semantic">
 
+                        <Button text="Prueba" press="getCustomersData" />
 	<semantic:SemanticPage
 		id="page"
 		headerPinnable="false"
@@ -36,7 +37,8 @@
 							id="tableHeader"
 							text="tiTable"
 							level="H3"/>
-						<ToolbarSpacer />
+						<ToolbarSpacer />				
+
 						<SearchField
 							id="searchField"
 							tooltip="{i18n>worklistSearchTooltip}"
