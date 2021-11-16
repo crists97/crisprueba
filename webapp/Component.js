@@ -2,7 +2,7 @@ sap.ui.define([
     "sap/ui/core/UIComponent",
     "sap/ui/Device",
     "sap/m/MessageBox",
-    "com/crisp/crisprueban/utils/formatter",
+    "com/crisp/crisprueban/services/utils/formatter",
     "com/crisp/crisprueban/services/ConfigHelper",
     "com/crisp/crisprueban/services/ApiFacade",
     "com/crisp/crisprueban/services/AjaxCaller",
