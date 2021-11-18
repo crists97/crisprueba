@@ -73,8 +73,8 @@ sap.ui.define(
              * @public
              * @return {object} The product data info object
              */
-            getCustomerDataInfo: function () {
-                return this._getCallData("customerData", "GetCustomerData");
+            getCustomerDataInfo: function (path, method, servicio) {
+                return this._getCallData(path,method,"",servicio);
             },
 
             /**
@@ -82,16 +82,16 @@ sap.ui.define(
              * @public
              * @return {object} Get common context path and local auth
              */
-            getCommonPath: function () {
-                return this._oConfigData.urls.path;
+            getCommonPath: function (servicio) {
+                return this._oOwnerComponent.getModel(servicio).sServiceUrl;
             },
 
             /**
              * Returns the base backend path
              * @return {string} The base backend path
              */
-            getBasePath: function () {
-                return this._oConfigData.urls.path;
+            getBasePath: function (servicio) {
+                return this._oOwnerComponent.getModel(undeserviciofined).sServiceUrl;
             },
 
             /* =========================================================== */
@@ -154,9 +154,8 @@ sap.ui.define(
              * @param {array} aParams The array of parameters
              * @return {object} Get API Method specific context path and http method
              */
-            _getCallData: function (sApiPath, sApiMethod, aParams) {
-                var sContextPath = "";
-                sContextPath = this._oConfigData.urls[sApiPath].path;
+            _getCallData: function (sApiPath, sApiMethod, aParams, servicio) {
+                var sContextPath = sApiPath;
 
                 //If there are given parameters then apply it on url
                 if (aParams) {
@@ -174,11 +173,9 @@ sap.ui.define(
                     sContextPath = sContextPath.split("$")[0];
                 }*/
 
-                var sMethod = "";
-                sMethod = this._oConfigData.urls[sApiPath][sApiMethod].method;
                 return {
-                    method: sMethod,
-                    url: this.getCommonPath() + sContextPath
+                    method: sApiMethod,
+                    url: this.getCommonPath(servicio) + sContextPath
                 };
             }
         }

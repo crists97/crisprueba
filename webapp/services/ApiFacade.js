@@ -48,7 +48,7 @@ sap.ui.define(
         },
 
         getCustomersData: function() {
-          var oUserDataInfo = ConfigHelper.getInstance().getCustomerDataInfo();
+          var oUserDataInfo = ConfigHelper.getInstance().getCustomerDataInfo( "/Customers","GET", "undefined" );
                // setTimeout(function (that) {
                     return AjaxCaller.getInstance()
                         .requestAjax(oUserDataInfo.method, oUserDataInfo.url)
