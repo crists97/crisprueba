@@ -102,6 +102,11 @@ sap.ui.define([
                                 .getText("refreshPrompt")
                         );
                     });
+
+                //metodo para llamar a la libreria tambien
+                var axios = this.getManifest()["sap.ui5"].resources.js[0];
+                jQuery.sap.registerModulePath(axios.name, axios.uri);
+
             },
 
             /**

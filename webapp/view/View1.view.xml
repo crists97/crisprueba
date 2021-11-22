@@ -4,7 +4,9 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:semantic="sap.f.semantic">
 
-                        <Button text="Prueba" press="getCustomersData" />
+    <Button text="Prueba" press="getCustomersData" />                       
+    <Button text="repo" press="repo" />
+
 	<semantic:SemanticPage
 		id="page"
 		headerPinnable="false"

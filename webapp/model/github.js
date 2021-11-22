@@ -1,6 +1,7 @@
 sap.ui.define([
 ], function () {
-    jQuery.sap.registerModulePath("axios", "https://unpkg.com/axios/dist/axios.min");
+    jQuery.sap.registerModulePath("axios", jQuery.sap.getModulePath("axioss"))
+    //jQuery.sap.registerModulePath("axios", "https://unpkg.com/axios/dist/axios.min");
     jQuery.sap.require("axios")
 
     // Documentation is at https://developer.github.com/v3/
@@ -34,43 +35,46 @@ sap.ui.define([
 
         getMain: function (username, url, rama) {
             var url1 = url.replace("{/sha}", "/" + rama);
-            var that=this;
-            axios.get(url1).then( function (response) {
+            var that = this;
+            axios.get(url1).then(function (response) {
                 that.createDialog(response)
             })
         },
 
         createDialog: function (data) {
             var oDialog1 = new sap.m.Dialog();
-            var oTable = new sap.m.Table("oTable", {
-                columns: [new sap.m.Column({
-                    header: new sap.m.Label({
-                        text: "NAME"
-                    })
-                }),new sap.m.Column({
-                    header: new sap.m.Label({
-                        text: "URL"
-                    })
-                })
-                ],
-                items: {
-                    path: '/',
-                    template: new sap.m.ColumnListItem({
-                        cells: [new sap.m.Text({
-                            text: "{path}"
-                        }),new sap.m.Link({
-                            text: "{url}", href: "{url}", target:"_blank"
+            if (!sap.ui.getCore().byId("oTable")) {
+                var oTable = new sap.m.Table("oTable", {
+                    columns: [new sap.m.Column({
+                        header: new sap.m.Label({
+                            text: "NAME"
                         })
-                        ]
+                    }), new sap.m.Column({
+                        header: new sap.m.Label({
+                            text: "URL"
+                        })
                     })
-                }
-            });
+                    ],
+                    items: {
+                        path: '/',
+                        template: new sap.m.ColumnListItem({
+                            cells: [new sap.m.Text({
+                                text: "{path}"
+                            }), new sap.m.Link({
+                                text: "{url}", href: "{url}", target: "_blank"
+                            })
+                            ]
+                        })
+                    }
+                });
 
 
+            } else {
+                var oTable = sap.ui.getCore().byId("oTable");
+            }
             oTable.setModel(new sap.ui.model.json.JSONModel(data.data.tree));
 
             oDialog1.addContent(oTable);
-
             oDialog1.open();
 
         }
