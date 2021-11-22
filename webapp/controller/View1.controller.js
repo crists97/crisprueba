@@ -1,5 +1,5 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller",
+    "com/crisp/crisprueban/base/BaseController",
     "com/crisp/crisprueban/services/ConfigHelper",
     "com/crisp/crisprueban/services/AjaxCaller",
     "com/crisp/crisprueban/services/ApiFacade",
@@ -10,10 +10,10 @@ sap.ui.define([
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, ConfigHelper, AjaxCaller, ApiFacade, JSONModel, BaseObject, MessageToast, github) {
+    function (BaseController, ConfigHelper, AjaxCaller, ApiFacade, JSONModel, BaseObject, MessageToast, github) {
         "use strict";
 
-        return Controller.extend("com.crisp.crisprueban.controller.View1", {
+        return BaseController.extend("com.crisp.crisprueban.controller.View1", {
             onInit: function () {
             },
             repo: function () {
@@ -21,11 +21,10 @@ sap.ui.define([
 
             },
             getCustomersData: function () {
-                return ApiFacade.getInstance().getCustomersData()
+                 ApiFacade.getInstance().getCustomersData()
                     .then(function (oData) {
                         MessageToast.show("THERE ARE ->  " +
-                            oData.d.results.length + " <- CUSTOMER");
-                        return oData;
+                            oData.length + " <- CUSTOMER");
                     });
             }
 

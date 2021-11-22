@@ -74,15 +74,34 @@
         "resources": {
             "css": [
                 {
-                    "uri": "css/style.css"
+                    "uri": "resourcesC/css/style.css"
                 }
             ],
             "js": [
                 {
                     "uri": "https://unpkg.com/axios/dist/axios.min",
-                    "name":"axioss"
-                }
+                    "name": "axioss"
+                },{
+                    "uri": "resourcesC/js/lib/promise-polyfill/promise.min.js"
+                  }
             ]
+        },
+        "config": {
+            "timeout": {
+                "short": "10000",
+                "medium": "50000",
+                "long": "300000"
+            },
+            "urls": {
+                "path": "/V2/Northwind/Northwind.svc/",
+                "relpath": "",
+                "CustomerData": {
+                    "path": "Customers",
+                    "GetCustomerData": {
+                        "method": "GET"
+                    }
+                }
+            }
         },
         "routing": {
             "config": {
