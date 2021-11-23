@@ -32,14 +32,13 @@ sap.ui.define(
                 /**
                  * Method to obtain the product data from its serial number
                  * @public
-                 * @param  {string}  sProductId The product id
                  * @return {Promise}            The call promise
                  */
-                getCustomersData: function (sProductId) {
-                    var oUserDataInfo = ConfigHelper.getInstance().getCallData("CustomerData", "GetCustomerData", sProductId);
+                getCustomersData: function () {
+                    var oUserDataInfo = ConfigHelper.getInstance().getCallData("CustomerData", "GetCustomerData");
                     return AjaxCaller.getInstance()
                         .requestAjax(oUserDataInfo.method, oUserDataInfo.url)
-                        .then(function (oData) { //si va bien va por aqui
+                        .then(function (oData) { //si va bien entra por aqui
                             return oData.d.results;
                         }).catch(function (oData) {//si va mal
                             return [];
