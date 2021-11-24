@@ -4,7 +4,7 @@ sap.ui.define(
       "sap/m/MessageBox",
       "sap/ui/core/mvc/Controller",
       "sap/ui/core/routing/History",
-      "sap/ui/model/json/JSONModel",
+      "sap/ui/model/json/JSONModel", 
       "com/crisp/crisprueban/utils/formatter"
     ],
     function (MessageBox, Controller, History, JSONModel, formatter) {
